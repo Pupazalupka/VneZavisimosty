@@ -79,4 +79,156 @@ h1 {
     #7E7E7D 87%, 
     #919190 100% 
   );
+    display: flex;
+    padding: 47px 63px;
+    align-items: center;
+    margin-bottom: 63px;
+}
+
+.about-preview img {
+    margin-right: auto;
+}
+
+.about-preview p {
+    font-size: 32px;
+    width: 681px;
+    color: white;
+}
+
+.about-content h2 {
+    font-size: 40px;
+    color: rgba(226, 0, 0, 1);
+    text-align: center;
+    margin-bottom: 113px;
+}
+
+.about-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 78px;
+    gap: 130px;
+    list-style: none;
+}
+
+.about-list-item {
+    padding-top: 10px;
+    background-color: rgba(90, 0, 0, 1);
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    height: 481px;
+    width: 340px;
+}
+
+.about-list-item h3 {
+    width: 276px;
+    margin-bottom: 41px;
+    font-size: 24px;
+    margin-left: 32px;
+}
+
+.about-list-item:nth-child(3) {
+    padding-top: 30px;
+}
+
+.about-list-item p {
+    width: 276px;
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+.about-list-item:nth-child(5) {
+    background-color: transparent;
+}
+
+.help {
+    border-radius: 20px;
+}
+
+.about {
+    margin-bottom: 124px;
+}
+
+.price {
+    background-color: rgba(52, 0, 0, 1);
+    padding: 57px 48px;
+    text-align: center;
+}
+
+.price h2 {
+    border-radius: 40px;
+    font-size: 40px;
+    color:rgba(90, 0, 0, 1);
+    background-color: white;
+    padding: 31px;
+    width: 523px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.price h3 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 65px;
+}
+
+.price-list {
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    color: white;
+    list-style: none;
+    margin-bottom: 140px;
+}
+
+.price-list-item {
+    width: 263px;
+}
+
+.price-list-item h4{
+    width: 90px;
+    height: 90px;
+    font-size: 64px;
+    border: 5px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.price-list-item h5 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.price-list-item p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.price-list-two {
+    display: flex;
+    color: white;
+    gap: 120px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 64px;
+}
+
+.price-list-two-item h4 {
+    width: 90px;
+    height: 90px;
+    font-size: 64px;
+    border: 5px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.price-list-two-item h5 {
+    font-size: 24px;
+}
+
+.price-list-two-item {
+    width: 300px;
 }
