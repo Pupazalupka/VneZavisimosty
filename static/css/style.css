@@ -17,8 +17,8 @@ h1 {
     display: flex;
     margin-bottom: 56px;
     align-items: center;
-    position: sticky; /* липкое позиционирование */
-    top: 0;           /* прилипает при достижении верха окна */
+    position: sticky;
+    top: 0;
     z-index: 1000;
     background: white;
 }
@@ -42,7 +42,6 @@ h1 {
     font-weight: 700;
 }
 
-
 .preview {
     background-color: rgba(52, 0, 0, 1);
     display: flex;
@@ -51,11 +50,11 @@ h1 {
 .preview-content {
     margin-top: 53px;
     margin-left: 61px;
-    margin-bottom: 55px;
+    margin-bottom: 30px;
     margin-right: auto;
 }
 
-.preview-content button {
+.preview-content a {
     background-color: white;
     color: rgba(90, 0, 0, 1);
     font-size: 40px;
@@ -63,6 +62,7 @@ h1 {
     border-radius: 10px;
     border: none;
     padding: 15px 20px;
+    text-decoration: none;
 }
 
 .preview img {
@@ -311,16 +311,254 @@ h1 {
     text-align: left;
 }
 
-.contact-text button {
+.contact-tg {
     font-size: 32px;
     font-weight: 600;
     color: white;
     background-color: rgba(90, 0, 0, 1);
-    border: none;
     border-radius: 50px;
     padding: 25px;
+    text-decoration: none;
 }
 
-button :hover {
-    cursor: pointer;
+.contact-text p {
+    margin-bottom: 90px;
+}
+
+.main-footer {
+    background-color:rgba(52, 0, 0, 1);
+    text-align: center;
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.footer-logo {
+    padding-top: 41px;
+    display: flex;
+    column-gap: 13px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.footer-social {
+    margin: 0;
+    display: flex;
+    padding-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-footer p {
+    margin: 0;
+}
+
+/* =========== АНИМАЦИИ =========== */
+
+/* 1. Общие анимации для интерактивных элементов */
+button, a, .site-navigation-item a, .contact-tg {
+  transition: all 0.3s ease;
+}
+
+/* 2. Анимация навигации при наведении */
+.site-navigation-item a {
+    position: relative;
+    padding: 5px 0;
+}
+
+.site-navigation-item a:hover {
+    color: #8B0000;
+    transform: translateY(-2px);
+}
+
+.site-navigation-item a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgba(226, 0, 0, 1);
+    transition: width 0.4s ease;
+}
+
+.site-navigation-item a:hover::after {
+    width: 100%;
+}
+
+/* 3. Анимация кнопки "Записаться" в preview */
+.preview-content a {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+.preview-content a:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    background-color: #f0f0f0;
+}
+
+/* 4. Анимация карточек в about-list */
+.about-list-item {
+    transition: all 0.4s ease;
+}
+
+.about-list-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(90, 0, 0, 0.3);
+}
+
+/* 5. Анимация элементов прайса */
+.price-list-item, .price-list-two-item {
+    transition: all 0.4s ease;
+}
+
+.price-list-item:hover, .price-list-two-item:hover {
+    transform: scale(1.1);
+}
+
+.price-list-item h4, .price-list-two-item h4 {
+    transition: all 0.3s ease;
+}
+
+.price-list-item:hover h4, .price-list-two-item:hover h4 {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 6. Анимация иконки телеграм в навигации */
+.tg {
+    transition: all 0.3s ease;
+}
+
+.tg:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* 7. Анимация кнопок в контактах */
+.contact-tg {
+    display: inline-block;
+    transition: all 0.4s ease;
+    margin-bottom: 20px;
+}
+
+.contact-tg:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(90, 0, 0, 0.4);
+    background-color: #7A0000;
+}
+
+/* 8. Анимация социальных иконок в футере */
+.footer-social a img {
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover img {
+    transform: scale(1.2);
+}
+
+/* 9. Плавное появление страницы */
+body {
+    animation: pageFadeIn 0.8s ease;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 10. Анимация при скролле для секций */
+.about-preview, .about-content, .price, .founder, .contact {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-preview.animated, 
+.about-content.animated, 
+.price.animated, 
+.founder.animated, 
+.contact.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 11. Анимация карточек при скролле */
+.about-list-item.scroll-animate, 
+.price-list-item.scroll-animate, 
+.price-list-two-item.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about-list-item.scroll-animate.animated, 
+.price-list-item.scroll-animate.animated, 
+.price-list-two-item.scroll-animate.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 12. Задержки для анимации карточек */
+.about-list-item.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+.about-list-item.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+.about-list-item.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+.about-list-item.scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+.about-list-item.scroll-animate:nth-child(5) { transition-delay: 0.5s; }
+.about-list-item.scroll-animate:nth-child(6) { transition-delay: 0.6s; }
+
+.price-list-item.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+.price-list-item.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+.price-list-item.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+.price-list-item.scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+.price-list-item.scroll-animate:nth-child(5) { transition-delay: 0.5s; }
+.price-list-item.scroll-animate:nth-child(6) { transition-delay: 0.6s; }
+.price-list-item.scroll-animate:nth-child(7) { transition-delay: 0.7s; }
+.price-list-item.scroll-animate:nth-child(8) { transition-delay: 0.8s; }
+
+/* 13. Эффект пульсации для заголовка в price */
+.price h2 {
+    animation: pulse 2s infinite;
+    transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.price h2:hover {
+    animation: none;
+    transform: scale(1.02);
+}
+
+/* 14. Анимация для фото основателя */
+.founder-img {
+    transition: all 0.5s ease;
+    filter: grayscale(20%);
+}
+
+.founder-img:hover {
+    transform: scale(1.03);
+    filter: grayscale(0%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 15. Исправление скролла для якорей */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 160px;
+}
+
+#about, #price, #founder, #contacts {
+    scroll-margin-top: 160px;
+}
+
+
+/* 17. Preview всегда виден */
+.preview {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
